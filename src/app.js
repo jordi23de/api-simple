@@ -1,15 +1,13 @@
-import express from "express";
-import cors from "cors";
-import multer from "multer";
-import datosRouter from './routes/datos.router.js';
-import { fileURLToPath } from 'url';
-import path from 'path';
-import { carpeta } from './config/crearCarpetas.js'
+const express = require("express")
+const cors = require("cors")
+const multer = require("multer")
+const datosRouter = require('./routes/datos.router.js')
+const path = require('path')
+const carpeta = require('./config/crearCarpetas.js')
 
 const app = express();
 app.use(cors());
-const currentFilePath = fileURLToPath(import.meta.url);
-const currentDir = path.dirname(currentFilePath);
+const currentDir = __dirname
 global.rutaBase = path.resolve(currentDir, '../');
 
 const storage = multer.diskStorage({
@@ -37,4 +35,4 @@ app.use(upload.any());
 
 app.use(datosRouter);
 
-export default app;
+module.exports = app;

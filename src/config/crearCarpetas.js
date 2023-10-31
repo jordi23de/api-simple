@@ -1,7 +1,7 @@
-import fs from "fs";
-import path from 'path';
+const fs = require("fs")
+const path = require('path')
 
-export const carpeta = (datos) => {
+const carpeta = (datos) => {
     const rutaCarpeta = path.join(global.rutaBase, 'escalafon', datos.facultad, datos.escuela, datos.usuario, datos.lugar); console.log(rutaCarpeta);
     if (!fs.existsSync(rutaCarpeta)) {
         fs.mkdirSync(rutaCarpeta, { recursive: true });
@@ -12,3 +12,4 @@ export const carpeta = (datos) => {
     }
 }
 
+module.exports = carpeta

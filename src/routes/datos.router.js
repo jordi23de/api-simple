@@ -1,6 +1,6 @@
-import { Router } from 'express'
-import { tb_encargado, tb_area, tb_tipo_incidencias, insert_incidencia, cantidad_incidencia_agrupado, cantidad_incidencias, incidencia_mas_frecuente, area_mas_incidencia, listado_tabla, actualizar_incidencia, incidencias_resueltas, promedio_resolucion } from '../controllers/datos.controller.js'
-import { buscar_tareas, resolver_incidencia } from '../controllers/encargado.controller.js'
+const { Router } = require('express')
+const { tb_encargado, tb_area, tb_tipo_incidencias, insert_incidencia, cantidad_incidencia_agrupado, cantidad_incidencias, incidencia_mas_frecuente, area_mas_incidencia, listado_tabla, actualizar_incidencia, incidencias_resueltas, promedio_resolucion } = require('../controllers/datos.controller.js')
+const { buscar_tareas, resolver_incidencia } = require('../controllers/encargado.controller.js')
 const router = Router()
 
 router.get('/datos/encargado', tb_encargado)
@@ -27,6 +27,6 @@ router.post('/datos/enviar', (req, res) => {
     res.json(req.body)
 })
 
-export default router
+module.exports = router
 
 
