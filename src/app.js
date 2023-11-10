@@ -3,6 +3,7 @@ const express = require("express")
 // const morgan = require("morgan")
 const cors = require('cors')
 const router = require('./routes/index.routers.js')
+const routerhome = require("./utils/rutasPosibles.js")
 /*const {pool} =require("../database/database.js"
 */
 const app = express()
@@ -15,5 +16,6 @@ app.set("port", PORT);
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/v1", router)
+app.use("/api/v1", routerhome)
 
 module.exports = app;
