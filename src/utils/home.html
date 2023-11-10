@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RUTAS DISPONIBLES PARA PETICIONES</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .cabecera {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* gap: 20px; */
+        }
+        
+
+        li {
+            background: #f9f9f9;
+            /* padding: 10px; */
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        code {
+            background: #f2f2f2;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>RUTAS DISPONIBLES PARA PETICIONES</h1>
+    <label>Todas las peticiones comienzan con <code>/api/v1</code></code></label>
+    <ul class="cabecera">
+        <li>
+            <h3>Ruta para listar datos generales:</h3>
+            <ul>
+                <li>Estado vital: <code>GET /datgen/evital</code></li>
+                <li>Estado civil: <code>GET /datgen/ecivil</code></li>
+                <li>Genero: <code>GET /datgen/genero/</code></li>
+                <li>Numero Hijos: <code>GET /datgen/hijos</code></li>
+            </ul>
+        </li>
+        <li>
+            <h3>Ruta para listar facultades:</h3>
+            <ul>
+                <li>Facultades: <code>GET /facultad</code></li>
+                <li>Escuela:    <code>GET /facultad/{idFacultad}</code></li>
+            </ul>
+        </li>
+        <li>
+            <h3>Ruta para listar procedencia:</h3>
+            <ul>
+                <li>Departamentos:  <code>GET /procedencia</code></li>
+                <li>Provincia:      <code>GET /procedencia/{idDepartamento}</code></li>
+                <li>Distrito:       <code>GET /procedencia/{idDepartamento}/{idProvincia}</code></li>
+            </ul>
+        </li>
+        <li>
+            <h3>Proximamente</h3>
+            <ul>
+                <li><code>POST /</code></li>
+                <li><code>GET /</code></li>
+                <li><code>PUT /</code></li>
+            </ul>
+        </li>
+    </ul>
 </body>
 </html>
