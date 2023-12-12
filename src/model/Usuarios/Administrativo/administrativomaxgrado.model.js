@@ -1,6 +1,6 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../database/database.js")
-const Administrativo  =require("../Administrativo/administrativo.model.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database.js")
+const Administrativo = require("../Administrativo/administrativo.model.js")
 
 const AdministrativoMaxGrado = sequelize.define(
   "tbl_adm_max_gradoacademico",
@@ -21,14 +21,14 @@ const AdministrativoMaxGrado = sequelize.define(
 
 //Relacion con Administrativo
 
-AdministrativoMaxGrado.hasMany(Administrativo,{
-    primaryKey:"idMaxGradoAcademico",
-    sourceKey:"id",
+AdministrativoMaxGrado.hasMany(Administrativo, {
+  primaryKey: "idMaxGradoAcademico",
+  sourceKey: "id",
 });
 
-Administrativo.belongsTo(AdministrativoMaxGrado,{
-    foreignKey:"idMaxGradoAcademico",
-    targetId:"id",
+Administrativo.belongsTo(AdministrativoMaxGrado, {
+  foreignKey: "idMaxGradoAcademico",
+  targetId: "id",
 });
 
-module.exports= AdministrativoMaxGrado
+module.exports = AdministrativoMaxGrado

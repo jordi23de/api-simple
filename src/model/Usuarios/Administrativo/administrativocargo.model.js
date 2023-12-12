@@ -1,8 +1,8 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../database/database.js")
-const Administrativo =require("../Administrativo/administrativo.model.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database.js")
+const Administrativo = require("../Administrativo/administrativo.model.js")
 
-const  AdministrativoCargo = sequelize.define(
+const AdministrativoCargo = sequelize.define(
   "tbl_adm_cargo",
   {
     idCargo: {
@@ -12,8 +12,8 @@ const  AdministrativoCargo = sequelize.define(
     nombCargo: {
       type: DataTypes.STRING,
     },
-    descripcionCargo:{
-        type:DataTypes.STRING,
+    descripcionCargo: {
+      type: DataTypes.STRING,
     },
   },
   {
@@ -24,14 +24,14 @@ const  AdministrativoCargo = sequelize.define(
 
 //Relacion con Administrativo
 
-AdministrativoCargo.hasMany(Administrativo,{
-    primaryKey:"idCargo",
-    sourceKey:"idCargo",
+AdministrativoCargo.hasMany(Administrativo, {
+  primaryKey: "idCargo",
+  sourceKey: "idCargo",
 });
 
-Administrativo.belongsTo(AdministrativoCargo,{
-    foreignKey:"idCargo",
-    targetId:"idCargo",
+Administrativo.belongsTo(AdministrativoCargo, {
+  foreignKey: "idCargo",
+  targetId: "idCargo",
 });
 
-module.exports= AdministrativoCargo
+module.exports = AdministrativoCargo

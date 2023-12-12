@@ -1,7 +1,7 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../database/database.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database.js")
 
-const  Administrativo = sequelize.define(
+const Administrativo = sequelize.define(
   "tbl_administrativo",
   {
     codAdm: {
@@ -12,32 +12,32 @@ const  Administrativo = sequelize.define(
       type: DataTypes.STRING,
       primaryKey: true,
     },
-    fechaIngreso:{
-        type:DataTypes.DATE,
+    fechaIngreso: {
+      type: DataTypes.DATE,
     },
-    descripcionDelCargo:{
-        type:DataTypes.STRING,
+    descripcionDelCargo: {
+      type: DataTypes.STRING,
     },
-    fechaInicioContrato:{
-        type:DataTypes.DATE
+    fechaInicioContrato: {
+      type: DataTypes.DATE
     },
-    fechaFinContrato:{
-        type:DataTypes.DATE,
+    fechaFinContrato: {
+      type: DataTypes.DATE,
     },
-    correoInstitucional:{
-        type:DataTypes.STRING,
+    correoInstitucional: {
+      type: DataTypes.STRING,
     },
-    contraseña:{
-        type:DataTypes.STRING,
+    contraseña: {
+      type: DataTypes.STRING,
     },
-    descripcionGradoAcademico:{
-        type:DataTypes.STRING,
+    descripcionGradoAcademico: {
+      type: DataTypes.STRING,
     },
-    regimenLaboral:{
-        type:DataTypes.STRING,
+    regimenLaboral: {
+      type: DataTypes.STRING,
     },
-    contratoCategoria:{
-        type:DataTypes.STRING,
+    contratoCategoria: {
+      type: DataTypes.STRING,
     }
   },
   {
@@ -48,4 +48,4 @@ const  Administrativo = sequelize.define(
 
 /*FK:
     idCargo,idOficina,idDependencia,idMaxGradoAcademico,idCondicionLaboral*/
-    module.exports= Administrativo
+module.exports = Administrativo

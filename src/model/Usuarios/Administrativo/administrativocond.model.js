@@ -1,5 +1,5 @@
-const { DataTypes } =require("sequelize")
-const sequelize =require("../../../database/database.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database.js")
 
 const AdministrativoCondicion = sequelize.define(
     'tbl_adm_condicion',
@@ -17,4 +17,4 @@ const AdministrativoCondicion = sequelize.define(
     }
 );
 
-module.exports= AdministrativoCondicion
+module.exports = AdministrativoCondicion

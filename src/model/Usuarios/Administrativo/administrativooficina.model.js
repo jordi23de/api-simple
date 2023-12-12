@@ -1,6 +1,6 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../database/database.js")
-const Administrativo =require("../Administrativo/administrativo.model.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database.js")
+const Administrativo = require("../Administrativo/administrativo.model.js")
 
 const AdministrativoOficina = sequelize.define(
   "tbl_adm_oficina",
@@ -21,14 +21,14 @@ const AdministrativoOficina = sequelize.define(
 
 //Relacion con Administrativo
 
-AdministrativoOficina.hasMany(Administrativo,{
-    primaryKey:"idOficina",
-    sourceKey:"idOficina",
+AdministrativoOficina.hasMany(Administrativo, {
+  primaryKey: "idOficina",
+  sourceKey: "idOficina",
 });
 
-Administrativo.belongsTo(AdministrativoOficina,{
-    foreignKey:"idOficina",
-    targetId:"idOficina",
+Administrativo.belongsTo(AdministrativoOficina, {
+  foreignKey: "idOficina",
+  targetId: "idOficina",
 });
 
-module.exports= AdministrativoOficina
+module.exports = AdministrativoOficina

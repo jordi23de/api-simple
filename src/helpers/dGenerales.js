@@ -30,6 +30,10 @@ const estadoCivil = [
 
 const hijos = [
     {
+        'idHijos': 0,
+        'hijos': 0
+    },
+    {
         'idHijos': 1,
         'hijos': 1
     },
