@@ -1,5 +1,5 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../database/database.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../database/database.js")
 
 const Usuario = sequelize.define(
   "tbl_usuario",
@@ -48,7 +48,7 @@ const Usuario = sequelize.define(
     telefono: {
       type: DataTypes.STRING,
     },
-    idTipoGrado: {
+    idEstadoVital: {
       type: DataTypes.INTEGER,
     },
     estado: {
@@ -64,4 +64,4 @@ const Usuario = sequelize.define(
 /*FK:
   idDepartamento, idProvincia, idDistrito, idEstadoVital
 */
-module.exports= Usuario
+module.exports = Usuario
