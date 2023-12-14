@@ -9,7 +9,7 @@ const AdministrativoDependencia = sequelize.define(
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
-    nombDependencia: {
+    nomDependencia: {
       type: DataTypes.STRING,
     },
   },
