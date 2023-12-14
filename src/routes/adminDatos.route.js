@@ -9,5 +9,5 @@ router.get('/condicion-laboral', getCondicionLaboralAdministrativo)
 router.get('/dependecia', getDependenciaAdministrativo)
 router.get('/oficina', getOficinaAdministrativo)
 router.get('/grado-maximo', getMaxGradoAdministrativo)
-
+//
 module.exports = router;
