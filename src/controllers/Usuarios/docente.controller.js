@@ -11,7 +11,8 @@ const getDocenteCondicion = async (req, res) => {
 }
 
 const getDocenteCategoria = async (req, res) => {
-    const resp = await DocenteCategoria.findAll();
+    const id = req.params.idCondicion
+    const resp = await DocenteCategoria.findAll({ include: DocenteCondicion, where: { idCondicion: id } });
     res.send(resp);
 }
 

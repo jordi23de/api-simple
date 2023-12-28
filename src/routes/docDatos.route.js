@@ -4,7 +4,7 @@ const { getDocenteCategoria, getDocenteCondicion, getRegimenPensiones } = requir
 const router = Router();
 
 router.get('/condicion', getDocenteCondicion);
-router.get('/categoria', getDocenteCategoria);
+router.get('/categoria/:idCondicion', getDocenteCategoria);
 router.get('/pensiones', getRegimenPensiones);
 
 module.exports = router;
