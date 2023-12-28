@@ -1,7 +1,7 @@
-const { Route } = require('express')
+const { Router } = require('express')
 const { getDocenteCategoria, getDocenteCondicion, getRegimenPensiones } = require('../controllers/Usuarios/docente.controller')
 
-const router = Route();
+const router = Router();
 
 router.get('/condicion', getDocenteCondicion);
 router.get('/categoria', getDocenteCategoria);
