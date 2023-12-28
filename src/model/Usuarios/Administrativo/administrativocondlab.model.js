@@ -22,7 +22,7 @@ const AdministrativoCondLab = sequelize.define(
 //Relacion con Administrativo
 
 AdministrativoCondLab.hasMany(Administrativo, {
-  primaryKey: "idCondicionLaboral",
+  foreignKey: "idCondicionLaboral",
   sourceKey: "id",
 });
 

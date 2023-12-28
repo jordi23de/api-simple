@@ -22,7 +22,7 @@ const AdministrativoDependencia = sequelize.define(
 //Relacion con Administrativo
 
 AdministrativoDependencia.hasMany(Administrativo, {
-  primaryKey: "idDependencia",
+  foreignKey: "idDependencia",
   sourceKey: "idDependencia",
 });
 

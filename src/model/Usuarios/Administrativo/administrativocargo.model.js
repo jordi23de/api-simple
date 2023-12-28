@@ -25,7 +25,7 @@ const AdministrativoCargo = sequelize.define(
 //Relacion con Administrativo
 
 AdministrativoCargo.hasMany(Administrativo, {
-  primaryKey: "idCargo",
+  foreignKey: "idCargo",
   sourceKey: "idCargo",
 });
 

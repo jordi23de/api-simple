@@ -15,7 +15,10 @@ const Administrativo = sequelize.define(
     fechaIngreso: {
       type: DataTypes.DATE,
     },
-    descripcionDelCargo: {
+    idCargo: {
+      type: DataTypes.INTEGER
+    },
+    descripcionCargo: {
       type: DataTypes.STRING,
     },
     fechaInicioContrato: {
@@ -30,14 +33,29 @@ const Administrativo = sequelize.define(
     contraseña: {
       type: DataTypes.STRING,
     },
+    idOficina: {
+      type: DataTypes.INTEGER
+    },
+    idDependencia: {
+      type: DataTypes.INTEGER
+    },
+    idMaxGradoAcademico: {
+      type: DataTypes.INTEGER
+    },
     descripcionGradoAcademico: {
       type: DataTypes.STRING,
+    },
+    idCondicionLaboral: {
+      type: DataTypes.INTEGER
     },
     regimenLaboral: {
       type: DataTypes.STRING,
     },
     contratoCategoria: {
       type: DataTypes.STRING,
+    },
+    estado: {
+      type: DataTypes.BOOLEAN,
     }
   },
   {

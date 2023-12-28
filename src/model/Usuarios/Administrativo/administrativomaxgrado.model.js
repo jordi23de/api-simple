@@ -22,7 +22,7 @@ const AdministrativoMaxGrado = sequelize.define(
 //Relacion con Administrativo
 
 AdministrativoMaxGrado.hasMany(Administrativo, {
-  primaryKey: "idMaxGradoAcademico",
+  foreignKey: "idMaxGradoAcademico",
   sourceKey: "id",
 });
 

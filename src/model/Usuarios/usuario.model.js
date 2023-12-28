@@ -24,19 +24,22 @@ const Usuario = sequelize.define(
     genero: {
       type: DataTypes.STRING,
     },
-    estdoCiv: {
+    estadoCivil: {
       type: DataTypes.STRING,
     },
     fechaNacimiento: {
       type: DataTypes.DATE,
     },
+    numHijos: {
+      type: DataTypes.INTEGER
+    },
     direccion: {
       type: DataTypes.STRING,
     },
-    dirreccionReferencia: {
+    direccionReferencia: {
       type: DataTypes.STRING,
     },
-    corroPersonal: {
+    correoPersonal: {
       type: DataTypes.STRING,
     },
     celular2: {

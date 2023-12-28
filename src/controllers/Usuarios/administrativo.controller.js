@@ -26,6 +26,25 @@ const getCondicionAdministrativo = async (req, res) => {
     const resp = await AdministrativoCondicion.findAll();
     res.send(resp);
 }
+const postSaveAdmin = async (req, res) => {
+    try {
+        const adminData = req.body;
+        const [admin, created] = await Administrativo.findOrCreate({
+            where: { numeroDocumento: adminData.numeroDocumento },
+            defaults: adminData,
+        });
+        if (created) {
+            console.log({ mensaje: 'Administrador creado', estado: '1' })
+            return res.send({ mensaje: 'Administrador creado', estado: '1' }); // This will certainly be 'Technical Lead JavaScript'
+        } else {
+            console.log({ mensaje: 'Administrador ya existe', estado: '2' })
+            return res.send({ mensaje: 'Administrador ya existe', estado: '2' });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({ mensaje: error });
+    }
+}
 
 module.exports = {
     getCargoAdministrativo,
@@ -33,6 +52,7 @@ module.exports = {
     getOficinaAdministrativo,
     getMaxGradoAdministrativo,
     getCondicionLaboralAdministrativo,
-    getCondicionAdministrativo
+    getCondicionAdministrativo,
+    postSaveAdmin
 }
 
