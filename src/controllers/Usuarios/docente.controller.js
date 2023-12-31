@@ -16,9 +16,29 @@ const getDocenteCategoria = async (req, res) => {
     res.send(resp);
 }
 
+const postSaveDoc = async (req, res) => {
+    try {
+        const docData = req.body;
+        const [doce, created] = await Docente.findOrCreate({
+            where: { numDocumento: docData.numDocumento },
+            defaults: docData,
+        });
+        if (created) {
+            console.log({ mensaje: 'Docente creado', estado: '1' })
+            return res.send({ mensaje: 'Docente creado', estado: '1' }); // This will certainly be 'Technical Lead JavaScript'
+        } else {
+            console.log({ mensaje: 'Docente ya existe', estado: '2' })
+            return res.send({ mensaje: 'Docente ya existe', estado: '2' });
+        }
+    } catch (error) {
+        console.log(error);
+        return res.status(400).send({ mensaje: error });
+    }
+}
 
 module.exports = {
     getDocenteCategoria,
     getDocenteCondicion,
-    getRegimenPensiones
+    getRegimenPensiones,
+    postSaveDoc
 }
