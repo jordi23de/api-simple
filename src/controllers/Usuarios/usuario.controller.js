@@ -20,4 +20,13 @@ const postSaveUser = async (req, res) => {
     }
 }
 
-module.exports = { postSaveUser }
+const getUser = async (req, res) => {
+    const resp = await Usuario.findByPk(req.body.DNI);
+    if (resp == null) {
+        return res.send({ estado: '1', data: resp });
+    } else {
+        return res.send({ estado: '1', data: 'No existe el usuario' });
+    }
+}
+
+module.exports = { postSaveUser, getUser }
