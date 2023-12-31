@@ -25,6 +25,10 @@ const estadoCivil = [
     {
         'idEstadoCivil': 'Divorciado',
         'estadoCivil': 'Divorciado'
+    },
+    {
+        'idEstadoCivil': 'Conviviente',
+        'estadoCivil': 'Conviviente'
     }
 ]
 
