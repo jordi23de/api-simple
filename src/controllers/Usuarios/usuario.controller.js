@@ -28,10 +28,10 @@ const getUser = async (req, res) => {
         if (resp != null) {
             return res.send({ estado: '1', data: resp });
         } else {
-            return res.send({ estado: '1', data: 'No existe el usuario' });
+            return res.send({ estado: '2', data: 'No existe el usuario' });
         }
     } catch (error) {
-        return res.status(400).send({ estado: '1', data: error });
+        return res.status(400).send({ estado: '3', data: error });
     }
 }
 
