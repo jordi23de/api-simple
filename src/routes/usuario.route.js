@@ -4,6 +4,6 @@ const { postSaveUser, getUser } = require('../controllers/Usuarios/usuario.contr
 const router = Router()
 
 router.post('/save', postSaveUser)
-router.get('/findOne', getUser)
+router.get('/findOne/:dni', getUser)
 
 module.exports = router;

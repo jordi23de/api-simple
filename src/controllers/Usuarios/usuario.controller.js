@@ -21,8 +21,10 @@ const postSaveUser = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
+    const dni = req.params.dni;
     try {
-        const resp = await Usuario.findByPk(req.body.DNI);
+        console.log(req.params)
+        const resp = await Usuario.findByPk(dni);
         if (resp != null) {
             return res.send({ estado: '1', data: resp });
         } else {
