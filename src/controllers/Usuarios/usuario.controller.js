@@ -21,11 +21,15 @@ const postSaveUser = async (req, res) => {
 }
 
 const getUser = async (req, res) => {
-    const resp = await Usuario.findByPk(req.body.DNI);
-    if (resp == null) {
-        return res.send({ estado: '1', data: resp });
-    } else {
-        return res.send({ estado: '1', data: 'No existe el usuario' });
+    try {
+        const resp = await Usuario.findByPk(req.body.DNI);
+        if (resp != null) {
+            return res.send({ estado: '1', data: resp });
+        } else {
+            return res.send({ estado: '1', data: 'No existe el usuario' });
+        }
+    } catch (error) {
+        return res.status(400).send({ estado: '1', data: error });
     }
 }
 
