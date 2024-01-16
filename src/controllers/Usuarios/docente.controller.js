@@ -1,3 +1,4 @@
+const Facultad = require('../../model/Facultad/facultad.model');
 const { Docente, DocenteCategoria, DocenteCondicion, RegimenPensiones } = require('../../model/Usuarios/Docente/index.model.docente')
 
 const getRegimenPensiones = async (req, res) => {
@@ -19,8 +20,9 @@ const getDocenteCategoria = async (req, res) => {
 const postSaveDoc = async (req, res) => {
     try {
         const docData = req.body;
+        console.log(docData)
         const [doce, created] = await Docente.findOrCreate({
-            where: { numDocumento: docData.numDocumento },
+            where: { numeroDocumento: docData.numeroDocumento },
             defaults: docData,
         });
         if (created) {
@@ -36,9 +38,40 @@ const postSaveDoc = async (req, res) => {
     }
 }
 
+const getDocentes = async (req, res) => {
+    try {
+        const { count, rows } = await Docente.findAndCountAll({
+            include: [
+                {
+                    model: Facultad,
+                    as: 'F'
+                },
+                {
+                    model: DocenteCondicion,
+                    as: 'Co'
+                },
+                {
+                    model: DocenteCategoria,
+                    as: 'Ca'
+                },
+                {
+                    model: RegimenPensiones,
+                    as: 'RP'
+                }
+            ],
+        })
+        console.log(rows);
+        return res.send({ estado: '1', count, rows });
+    } catch (error) {
+        console.log(error)
+        return res.status(400).send({ estado: '0', error })
+    }
+}
+
 module.exports = {
     getDocenteCategoria,
     getDocenteCondicion,
     getRegimenPensiones,
-    postSaveDoc
+    postSaveDoc,
+    getDocentes
 }

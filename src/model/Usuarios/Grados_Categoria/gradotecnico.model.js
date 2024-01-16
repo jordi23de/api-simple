@@ -1,10 +1,10 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../../database/database")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database")
 
 const GradoTecnico = sequelize.define(
     'tbl_grado_tecnico',
     {
-        numDocumento: {
+        numeroDocumento: {
             type: DataTypes.STRING
         },
         pais: {
@@ -23,4 +23,4 @@ const GradoTecnico = sequelize.define(
     }
 );
 
-module.exports= GradoTecnico
+module.exports = GradoTecnico

@@ -24,11 +24,13 @@ const AdministrativoCondLab = sequelize.define(
 AdministrativoCondLab.hasMany(Administrativo, {
   foreignKey: "idCondicionLaboral",
   sourceKey: "id",
+  as: 'A'
 });
 
 Administrativo.belongsTo(AdministrativoCondLab, {
   foreignKey: "idCondicionLaboral",
   targetId: "id",
+  as: 'ACL'
 });
 
 module.exports = AdministrativoCondLab

@@ -24,11 +24,13 @@ const AdministrativoMaxGrado = sequelize.define(
 AdministrativoMaxGrado.hasMany(Administrativo, {
   foreignKey: "idMaxGradoAcademico",
   sourceKey: "id",
+  as: 'A'
 });
 
 Administrativo.belongsTo(AdministrativoMaxGrado, {
   foreignKey: "idMaxGradoAcademico",
   targetId: "id",
+  as: 'AMG'
 });
 
 module.exports = AdministrativoMaxGrado

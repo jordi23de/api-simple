@@ -27,11 +27,13 @@ const AdministrativoCargo = sequelize.define(
 AdministrativoCargo.hasMany(Administrativo, {
   foreignKey: "idCargo",
   sourceKey: "idCargo",
+  as: 'A'
 });
 
 Administrativo.belongsTo(AdministrativoCargo, {
   foreignKey: "idCargo",
   targetId: "idCargo",
+  as: 'ACa'
 });
 
 module.exports = AdministrativoCargo

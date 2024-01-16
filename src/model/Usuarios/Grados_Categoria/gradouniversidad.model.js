@@ -1,16 +1,17 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../../database/database")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database")
 
 const GradoUniversidad = sequelize.define(
     'tbl_grado_universidad',
     {
-        numDocumento:{
-            type: DataTypes.STRING
+        numeroDocumento: {
+            type: DataTypes.STRING,
+            primaryKey: true,
         },
         pais: {
             type: DataTypes.STRING
         },
-        faculta: {
+        facultad: {
             type: DataTypes.STRING
         },
         carrera: {
@@ -26,4 +27,4 @@ const GradoUniversidad = sequelize.define(
     }
 );
 
-module.exports= GradoUniversidad
+module.exports = GradoUniversidad

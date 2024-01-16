@@ -1,7 +1,7 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../database/database.js")
-const Docente  =require("../Usuarios/Docente/docente.model.js")
-const FacultadEscuela  =require("../Facultad/facultadescuela.model.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../database/database.js")
+const Docente = require("../Usuarios/Docente/docente.model.js")
+const FacultadEscuela = require("../Facultad/facultadescuela.model.js")
 
 const Facultad = sequelize.define(
   "tbl_facultad",
@@ -37,11 +37,13 @@ FacultadEscuela.belongsTo(Facultad, {
 Facultad.hasMany(Docente, {
   foreignKey: "idFacultad",
   sourceKey: "idFacultad",
+  as: 'D'
 });
 
 Docente.belongsTo(Facultad, {
   foreignKey: "idFacultad",
   targetId: "idFacultad",
+  as: 'F'
 });
 
-module.exports= Facultad 
+module.exports = Facultad 

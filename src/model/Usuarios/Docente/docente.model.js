@@ -1,5 +1,5 @@
-const { DataTypes } =require("sequelize")
-const sequelize  =require("../../../database/database.js")
+const { DataTypes } = require("sequelize")
+const sequelize = require("../../../database/database.js")
 
 const Docente = sequelize.define(
   "tbl_docente",
@@ -8,7 +8,7 @@ const Docente = sequelize.define(
       type: DataTypes.STRING,
       primaryKey: true,
     },
-    numDocumento: {
+    numeroDocumento: {
       type: DataTypes.STRING,
       primaryKey: true,
     },
@@ -18,6 +18,12 @@ const Docente = sequelize.define(
     periodo: {
       type: DataTypes.STRING,
     },
+    idCondicion: {
+      type: DataTypes.INTEGER
+    },
+    idCategoria: {
+      type: DataTypes.INTEGER
+    },
     investigador: {
       type: DataTypes.BOOLEAN,
     },
@@ -26,6 +32,9 @@ const Docente = sequelize.define(
     },
     postgrado: {
       type: DataTypes.BOOLEAN,
+    },
+    idRegimenPensiones: {
+      type: DataTypes.INTEGER
     },
     horasTotal: {
       type: DataTypes.INTEGER,
@@ -39,9 +48,9 @@ const Docente = sequelize.define(
     numeroResolucion: {
       type: DataTypes.STRING,
     },
-    contraseña: {
-      type: DataTypes.STRING,
-    },
+    // contraseña: {
+    //   type: DataTypes.STRING,
+    // },
   },
   {
     freezeTableName: true,
@@ -52,4 +61,4 @@ const Docente = sequelize.define(
 /*FK: 
   idFacultad, idCategoria, idCondicion, idRegimen*/
 
-  module.exports= Docente
+module.exports = Docente
