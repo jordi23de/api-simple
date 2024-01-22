@@ -1,5 +1,6 @@
 const Facultad = require('../../model/Facultad/facultad.model');
-const { Docente, DocenteCategoria, DocenteCondicion, RegimenPensiones } = require('../../model/Usuarios/Docente/index.model.docente')
+const { Docente, DocenteCategoria, DocenteCondicion, RegimenPensiones, DocenteView } = require('../../model/Usuarios/Docente/index.model.docente');
+const { paginate } = require('../paginacion');
 
 const getRegimenPensiones = async (req, res) => {
     const resp = await RegimenPensiones.findAll();
@@ -68,10 +69,66 @@ const getDocentes = async (req, res) => {
     }
 }
 
+const getViewDoc = async (req, res) => {
+    try {
+        //extraemos los parametros de la ruta
+        const { q, page, limit, o_by, o_direc, rela } = req.query;
+
+        let buscar = {};
+        let orden = [];
+        let include = [];
+
+        //agregamos la busqueda a buscar{} si existe
+        if (q) {
+            buscar = {
+                where: {
+                    codAdm: {
+                        [Op.like]: `%${q}%`
+                    }
+                }
+            };
+        }
+
+        //agregamos el orden a orden[]
+        if (o_by && o_direc) {
+            orden.push([o_by, o_direc]);
+        }
+
+        const docentes = await paginate(DocenteView, page, limit, buscar, orden);
+
+        if (docentes.error) {
+            if (page > docentes.totalPage) {
+                return res.status(400).send({
+                    estado: 2,
+                    mensaje: `La pagina ${page} no esxite`,
+                    result: docentes
+                })
+            } else {
+                return res.status(400).send({
+                    estado: 3,
+                    mensaje: 'Datos de administrativo no obtenidos',
+                    result: docentes
+                })
+            }
+        } else {
+            return res.status(200).send({
+                estado: 1,
+                mensaje: 'Datos de administrativo obtenidos',
+                result: docentes
+            })
+        }
+
+
+    } catch (error) {
+        res.status(400).send({ estado: '0', mensaje: error })
+    }
+}
+
 module.exports = {
     getDocenteCategoria,
     getDocenteCondicion,
     getRegimenPensiones,
     postSaveDoc,
-    getDocentes
+    getDocentes,
+    getViewDoc
 }

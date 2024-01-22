@@ -48,6 +48,9 @@ const Docente = sequelize.define(
     numeroResolucion: {
       type: DataTypes.STRING,
     },
+    estado: {
+      type: DataTypes.BOOLEAN,
+    }
     // contraseña: {
     //   type: DataTypes.STRING,
     // },
