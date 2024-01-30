@@ -4,11 +4,11 @@ const sequelize = require("../../../database/database.js")
 const SearchDocenteView = sequelize.define(
   "view_search_docentes",
   {
-    codigo: {
+    value: {
       type: DataTypes.STRING,
       primaryKey: true
     },
-    nombre: {
+    label: {
       type: DataTypes.STRING
     },
   },
