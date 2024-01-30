@@ -1,5 +1,5 @@
 const Facultad = require('../../model/Facultad/facultad.model');
-const { Docente, DocenteCategoria, DocenteCondicion, RegimenPensiones, DocenteView } = require('../../model/Usuarios/Docente/index.model.docente');
+const { Docente, DocenteCategoria, DocenteCondicion, RegimenPensiones, DocenteView, SearchDocenteView } = require('../../model/Usuarios/Docente/index.model.docente');
 const { paginate } = require('../paginacion');
 
 const getRegimenPensiones = async (req, res) => {
@@ -124,11 +124,22 @@ const getViewDoc = async (req, res) => {
     }
 }
 
+const getSearchDocenteView = async (req, res) => {
+    try {
+        const resp = await SearchDocenteView.findAll();
+
+        res.status(200).send(resp);
+    } catch (error) {
+        res.status(400).send({ value: '', label: 'ocurrio un error' })
+    }
+}
+
 module.exports = {
     getDocenteCategoria,
     getDocenteCondicion,
     getRegimenPensiones,
     postSaveDoc,
     getDocentes,
-    getViewDoc
+    getViewDoc,
+    getSearchDocenteView
 }
