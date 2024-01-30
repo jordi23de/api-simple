@@ -1,10 +1,19 @@
 const { Op } = require('sequelize');
-const { Administrativo, AdministrticoCargo, AdministrativoCondLab, AdministrativoCondicion, AdministrativoDependencia, AdministrativoMaxGrado, AdministrativoOficina, AdministrativoView } = require('../../model/Usuarios/Administrativo/index.model.Administrativo.js');
+const { Administrativo, AdministrticoCargo, AdministrativoCondLab, AdministrativoCondicion, AdministrativoDependencia, AdministrativoMaxGrado, AdministrativoOficina, AdministrativoView, SearcAdministrativoView } = require('../../model/Usuarios/Administrativo/index.model.Administrativo.js');
 const { paginate } = require('../paginacion.js');
 
 const getCargoAdministrativo = async (req, res) => {
     const resp = await AdministrticoCargo.findAll();
     res.send(resp);
+}
+const getSearcAdministrativoView = async (req, res) => {
+    try {
+        const resp = await SearcAdministrativoView.findAll();
+
+        res.status(200).send(resp);
+    } catch (error) {
+        res.status(400).send({ value: '', label: 'ocurrio un error' })
+    }
 }
 
 const getViewAdm = async (req, res) => {
@@ -223,5 +232,6 @@ module.exports = {
     postSaveAdmin,
     getAdmin,
     getViewAdm,
+    getSearcAdministrativoView,
 }
 

@@ -6,7 +6,8 @@ const AdministrativoDependencia = require('./administrativodependencia.model.js'
 const AdministrativoMaxGrado = require('./administrativomaxgrado.model.js')
 const AdministrativoOficina = require('./administrativooficina.model.js')
 const AdministrativoView = require('./administrativo.view.js')
+const SearcAdministrativoView = require('./seacrh_administrativo.view.js')
 
 module.exports = {
-    Administrativo, AdministrticoCargo, AdministrativoCondLab, AdministrativoCondicion, AdministrativoDependencia, AdministrativoMaxGrado, AdministrativoOficina, AdministrativoView
+    Administrativo, AdministrticoCargo, AdministrativoCondLab, AdministrativoCondicion, AdministrativoDependencia, AdministrativoMaxGrado, AdministrativoOficina, AdministrativoView, SearcAdministrativoView
 }
