@@ -41,28 +41,8 @@ const postSaveDoc = async (req, res) => {
 
 const getDocentes = async (req, res) => {
     try {
-        const { count, rows } = await Docente.findAndCountAll({
-            include: [
-                {
-                    model: Facultad,
-                    as: 'F'
-                },
-                {
-                    model: DocenteCondicion,
-                    as: 'Co'
-                },
-                {
-                    model: DocenteCategoria,
-                    as: 'Ca'
-                },
-                {
-                    model: RegimenPensiones,
-                    as: 'RP'
-                }
-            ],
-        })
-        console.log(rows);
-        return res.send({ estado: '1', count, rows });
+        const resp = await DocenteView.findAll();
+        res.status(200).send(resp);
     } catch (error) {
         console.log(error)
         return res.status(400).send({ estado: '0', error })
