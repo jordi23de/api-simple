@@ -12,5 +12,6 @@ router.get('/grado-maximo', getMaxGradoAdministrativo)
 router.post('/save', postSaveAdmin)
 router.get('/getSearchAdmin', getSearcAdministrativoView)
 router.get('/getViewAdm', getViewAdm)
+router.get('/getAdm', getAdmin)
 //
 module.exports = router;
